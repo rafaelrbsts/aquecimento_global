@@ -32,9 +32,9 @@ function Blog() {
                         link="https://nautica.com.br/dia-do-oceano-voce-sabe-qual-e-o-oceano-mais-antigo-da-terra/"
                         materia="OCEANOS"
                         corMateria="#0077B6"
-                        data="15 de setembro de 2023"
-                        titulo="O impacto das mudanças climáticas no oceano"
-                        descricao="Como o aquecimento dos oceanos está afetando a vida marinha e os ecossistemas costeiros..."
+                        data="12 Abr, 2024"
+                        titulo="A temperatura dos oceanos bate recorde histórico"
+                        descricao="Especialistas alertam para o impacto imediato na fauna marinha e nos padrões de chuva regionais..."
                     />
                 </div>
                 

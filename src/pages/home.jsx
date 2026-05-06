@@ -26,7 +26,7 @@ function Home() {
                         <div style={{display:"flex", gap:"30px", marginLeft:"22px"}}>
                             <AButton texto="Saiba mais"/>
                             <AButton sx={{border:"1px solid #CCD6E1"}}
-                            color="#47556D"
+                            color="#404144"
                             texto="Contribuir"
                             backgroundColor="none"
                             />
