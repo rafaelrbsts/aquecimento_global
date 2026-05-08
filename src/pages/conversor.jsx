@@ -2,6 +2,7 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import ADrawer from "../components/drawer"
 import AButton from "../components/aButton"
+import { useState } from "react"
 
 import {Box, Typography, TextField, MenuItem} from '@mui/material';
 
@@ -19,6 +20,40 @@ function Conversor() {
         {value: 'fahrenheit-kelvin', label: 'Fahrenheit para Kelvin'},
         {value: 'kelvin-fahrenheit', label: 'Kelvin para Fahrenheit'},
     ];
+
+    const [valor, setvalor] = useState("")
+    const [tipo, settipo] = useState("")
+    const [resultado, setresultado] = useState("")
+
+    function converter() {
+        
+        const numero = parseFloat(valor)
+
+        if (tipo === 'celsius-fahrenheit') {
+            setresultado(`${(numero * 9/5) + 32} °F`)
+        }
+
+        else if (tipo === 'fahrenheit-celsius') {
+            setresultado(`${(numero - 32) * 5/9} °C`)
+        }
+
+        else if (tipo === 'celsius-kelvin') {
+            setresultado(`${numero + 273.15} K`)
+        }
+
+        else if (tipo === 'kelvin-celsius') {
+            setresultado(`${numero - 273.15} °C`)
+        }
+
+        else if (tipo === 'fahrenheit-kelvin') {
+            setresultado(`${((numero - 32) * 5/9) + 273.15} K`)
+        }
+
+        else if (tipo === 'kelvin-fahrenheit') {
+            setresultado(`${((numero - 273.15) * 9/5) + 32} °F`)
+        }
+
+    }
 
     return (
         <>
@@ -53,6 +88,8 @@ function Conversor() {
                             label=""
                             select
                             fullWidth
+                            value={tipo}
+                            onChange={(e) => settipo(e.target.value)}
                             >
                                 {conversoes.map((option) => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -70,10 +107,13 @@ function Conversor() {
                             label=""
                             type="number"
                             fullWidth
+                            value={valor}
+                            onChange={(e) => setvalor(e.target.value)}
                             />
                         </Box>
 
                         <AButton sx={{boxShadow:"0 8px 6px rgba(0,0,0,0.3)"}}
+                        onClick={converter}
                         texto="Converter agora"
                         width="100%"
                         borderRadius="12px"
@@ -84,7 +124,7 @@ function Conversor() {
                                 RESULTADO
                             </Typography>
                             <Typography sx={{marginTop:"28px", color:"#047857", fontWeight:"700", fontSize:"32px", textTransform:"uppercase", letterSpacing:"5%"}}>
-                                teste
+                                {resultado}
                             </Typography>
                         </Box>
                     </Box>
